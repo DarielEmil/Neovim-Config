@@ -4,7 +4,24 @@ source ~/.config/nvim/.vimrc
 source ~/.config/nvim/configPlugged.vim
 source ~/.config/nvim/luaConfig/init.lua
 
+set termguicolors
 lua << EOF
+require('bufferline').setup{}
+EOF
+
+lua <<EOF
+require('gitsigns').setup()
+EOF
+lua << END
+require('lualine').setup{
+options = {
+  theme = 'auto'
+  },
+  tabline = {}
+}
+END
+lua << EOF
+
   require("todo-comments").setup {
   signs = true, -- show icons in the signs column
   sign_priority = 8, -- sign priority
@@ -64,5 +81,4 @@ lua << EOF
     -- or leave it empty to use the default settings
     -- refer to the configuration section below
 EOF
-
 
