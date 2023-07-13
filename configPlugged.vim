@@ -1,17 +1,20 @@
 "NOTE: Themes
+
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 "Plug 'ayu-theme/ayu-vim'
-""Plug 'morhetz/gruvbox'
+"Plug 'morhetz/gruvbox'
 "Plug 'marko-cerovac/material.nvim'
 "Plug 'navarasu/onedark.nvim'
 "Plug 'EdenEast/nightfox.nvim'
+"Plug 'shaunsingh/moonlight.nvim'
+"Plug 'haishanh/night-owl.vim'
+"Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 
 "NOTE: Statusline Plug
 "Plug 'vim-airline/vim-airline'
 "Plug 'vim-airline/vim-airline-themes'
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
-
 
 "NOTE: Better comments
 Plug 'nvim-lua/plenary.nvim'
@@ -28,7 +31,7 @@ Plug 'preservim/nerdcommenter'
 
 "NOTE: Color syntax
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins' }
+"Plug 'numirias/semshi', { 'do': ':UpdateRemotePlugins' }
 
 "NOTE: Autocomplete
 
@@ -41,7 +44,7 @@ Plug 'kyazdani42/nvim-tree.lua'
 Plug 'nvim-lua/plenary.nvim'
 "Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 "Plug 'junegunn/fzf.vim'
-Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope.nvim', {'tag': '0.1.0'}
 
 "NOTE: Identation
 
@@ -50,6 +53,7 @@ Plug 'Yggdroot/indentLine'
 "NOTE: Buffer 
 
 Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*' }
+Plug 'folke/trouble.nvim'
 
 "NOTE: Git Plugins
 
@@ -57,24 +61,17 @@ Plug 'lewis6991/gitsigns.nvim'
 
 call plug#end()
 
+"NOTE: Catppucini theme 
+
+"colorscheme catppuccin-mocha " catppuccin-latte, catppuccin-frappe, catppuccin-macchiato, catppuccin-mocha
+
 "NOTE: The theme config 
 
 set termguicolors
 
 "TODO: Nighfox theme config
 
-"colorscheme nightfox
-
-
-"TODO: Ayu theme config
-"let ayucolor="dark"
-"colorscheme ayu 
-
-
-"TODO: material theme config
-"let g:material_style="deep ocean"
-"let g:material_style="dark"
-"colorscheme material
+"colorscheme duskfox 
 
 "TODO: gruvbox theme config
 "let g:gruvbox_contrast_dark='hard'
@@ -82,7 +79,7 @@ set termguicolors
 "colorscheme gruvbox
 
 "TODO: tokyonight theme config
-let g:tokyonight_style = "night"
+let g:tokyonight_style = "day"
 let g:tokyonight_italic_functions = 1
 let g:tokyonight_italic_keywords = 1
 let g:tokyonight_italic_variables =1 
@@ -94,13 +91,24 @@ let g:tokyonight_colors = {
       \ 'error': '#ff0000'
       \}
 
-colorscheme tokyonight
+colorscheme tokyonight-moon
+
 
 "TODO: onedark theme config
 "let g:onedark_config = {
       "\'style': 'darker',
       "\}
 "colorscheme onedark
+
+"TODO: Moon light theme config
+"colorscheme moonlight
+
+"TODO: Night Owl Theme config
+"colorscheme night-owl
+
+"TODO: Kanagawa Colorscheme 
+
+"colorscheme kanagawa
 
 "NOTE: Coc Config
 
@@ -114,12 +122,6 @@ inoremap <silent><expr> <Tab>
       \ coc#pum#visible() ? coc#pum#next(1) :
       \ CheckBackspace() ? "\<Tab>" :
       \ coc#refresh()
-
-"NOTE: Nvim-Tree.lua config 
-
-
-
-
 
 "NOTE: Telescope Config
 nnoremap <Leader>ff <cmd>Telescope find_files<cr>
@@ -147,3 +149,4 @@ nnoremap <Leader>fh <cmd>Telescope help_tags<cr>
 
 nnoremap <silent>[b :BufferLineCycleNext<CR>
 nnoremap <silent>b] :BufferLineCyclePrev<CR>
+

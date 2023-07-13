@@ -3,8 +3,12 @@ let &packpath=&runtimepath
 source ~/.config/nvim/.vimrc
 source ~/.config/nvim/configPlugged.vim
 source ~/.config/nvim/luaConfig/init.lua
+source ~/.config/nvim/luaConfig/plugins.lua
+source ~/.config/nvim/luaConfig/highlight.lua
 
 set termguicolors
+
+lua require('packer')
 lua << EOF
 require('bufferline').setup{}
 EOF
@@ -12,16 +16,17 @@ EOF
 lua <<EOF
 require('gitsigns').setup()
 EOF
+
 lua << END
 require('lualine').setup{
 options = {
-  theme = 'auto'
+    icons_enabled=true,
+    theme = 'nightfly'
   },
   tabline = {}
 }
 END
 lua << EOF
-
   require("todo-comments").setup {
   signs = true, -- show icons in the signs column
   sign_priority = 8, -- sign priority
@@ -36,8 +41,9 @@ lua << EOF
     TODO = { icon = " ", color = "info" },
     HACK = { icon = " ", color = "warning" },
     WARN = { icon = " ", color = "warning", alt = { "WARNING", "XXX" } },
-    PERF = { icon = " ", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
-    NOTE = { icon = " ", color = "hint", alt = { "INFO" } },
+    PERF = { icon = " ", alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE" } },
+    NOTE = { icon = " ", color = "hint", alt = { "INFO" } },
+    TEST = { icon = " ", color = "test", alt = { "TESTING", "PASSED", "FAILED" } },
   },
   merge_keywords = true, -- when true, custom keywords will be merged with the defaults
   -- highlighting of the line containing the todo comment
